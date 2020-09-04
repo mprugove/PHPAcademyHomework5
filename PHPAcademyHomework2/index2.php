@@ -15,3 +15,4 @@
         } echo "<br>";
         array_push($alphasArr, array_shift($alphasArr));
     }
+
