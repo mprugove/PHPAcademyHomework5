@@ -2,18 +2,17 @@
 
     $name = "matija";
     $nameArr = str_split($name);
-    $alphas = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,r,s,t,u,v,w,x,y,z";
-    $alphasArr = explode(',', $alphas);
-    $rowNum = count($nameArr);
+    $alphasArr = range('a','z');
+    $alphasCount = count($nameArr);
 
 
-    for($i = 0; $i < $rowNum; $i++) {
+    for($x = 0; $x < $alphasCount; $x++) {
         foreach($alphasArr as $letter) {
-            if($letter === $nameArr[$i] && $letter === $nameArr[$rowNum - 1 -$i]) {
+            if($letter === $nameArr[$x] && $letter === $nameArr[$alphasCount - 1 -$x]) {
                 echo "<b><u>" . $letter . "</u></b>";
-            } elseif ($letter === $nameArr[$rowNum - 1 -$i]) {
+            } elseif ($letter === $nameArr[$alphasCount - 1 -$x]) {
                 echo "<u>" .$letter . "</u>";
-            } elseif ($letter === $nameArr[$i]) {
+            } elseif ($letter === $nameArr[$x]) {
                 echo "<b>" . $letter . "</b>";
             } else {
                 echo $letter;
