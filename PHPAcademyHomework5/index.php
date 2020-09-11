@@ -32,11 +32,16 @@ $foldersArray = ['HomeworkClass1', 'HomeWorkClass2'];
 $randomFolders = array_rand($foldersArray, 1);
 
 
-$filesArray = ['HClassOne','HClassTwo'];
+$filesArray = ['HClassOne', 'HClassTwo'];
 $randomFiles = array_rand($filesArray, 1);
 
-$class = 'classes\\' .$foldersArray[$randomFolders].'\\'.$filesArray[$randomFiles];
+$where = 'classes\\' . $foldersArray[$randomFolders] . '\\' . $filesArray[$randomFiles];
 
-$object = new $class;
+$object = new $where;
 
-echo App::getSomething($prefixDate,$object);
+echo App::getSomething($prefixDate, $object);
+
+echo '<br>';
+$name = new Prefix;
+$name->setName('Pero');
+echo 'Added by ' . $name->getName();

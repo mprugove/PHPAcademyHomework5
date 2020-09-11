@@ -7,8 +7,6 @@ class Prefix
     private $date;
     private $name;
 
-
-
     public function getDate()
     {
         return $this->date;
