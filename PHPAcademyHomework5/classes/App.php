@@ -8,7 +8,7 @@ final class App extends Prefix
 {
  public static function getSomething($prefix, $name)
      {
-         return $prefix->getDate(). ' ' .$name->viewAction();
+         return  $name->viewAction() . $prefix->getDate();
      }
 }
 

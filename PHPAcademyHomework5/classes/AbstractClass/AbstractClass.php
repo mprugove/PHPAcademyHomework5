@@ -6,6 +6,6 @@ abstract class AbstractClass
 {
     public function viewAction()
     {
-
+        return $this;
     }
 }

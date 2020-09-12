@@ -2,7 +2,6 @@
 
 namespace classes\Interfaces;
 
-use mysql_xdevapi\DatabaseObject;
 
 interface Inter
 {
@@ -13,10 +12,6 @@ interface Inter
 
 abstract class DateInterface implements Inter
 {
-    public function getDate()
-    {
-        return $this->date;
-    }
 
     public function setDate($date)
     {
@@ -30,4 +25,5 @@ class GetInterface extends DateInterface
     {
         return $this->date;
     }
+
 }

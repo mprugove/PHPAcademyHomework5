@@ -9,15 +9,21 @@ require 'classes/HomeworkClass1/HClassOne.php';
 require 'classes/HomeworkClass1/HClassTwo.php';
 require 'classes/HomeworkClass2/HClassOne.php';
 require 'classes/HomeworkClass2/HClassTwo.php';
+require 'classes/HomeworkClass3/HClassOne.php';
+require 'classes/HomeworkClass3/HClassTwo.php';
+require 'classes/Interfaces/Interfaces.php';
 require 'classes/Prefix/Prefix.php';
 require 'classes/App.php';
 
 use classes\App;
 use classes\Prefix\Prefix;
+use classes\Interfaces\GetInterface;
 use classes\HomeworkClass1\HClassOne as ClassOne;
 use classes\HomeworkClass1\HClassTwo as ClassTwo;
 use classes\HomeworkClass2\HClassOne as ClassThree;
 use classes\HomeworkClass2\HClassTwo as ClassFour;
+use classes\HomeworkClass3\HClassTwo as ClassFive;
+use classes\HomeworkClass3\HClassTwo as ClassSix;
 
 $year = 2020;
 $month = rand(1,12);
@@ -28,20 +34,24 @@ $prefixDate = new Prefix;
 $prefixDate->setDate($randomDate);
 //echo $prefixDate->getDate();
 
-$foldersArray = ['HomeworkClass1', 'HomeWorkClass2'];
-$randomFolders = array_rand($foldersArray, 1);
+//$foldersArray = [
+//    'classes\HomeworkClass1',
+//    'classes\HomeworkClass1',
+//    'classes\HomeworkClass2',
+//    'classes\HomeworkClass2'
+//];
 
-
+$foldersArray = ['HomeworkClass1', 'HomeworkClass2', 'HomeworkClass3'];
+$randomFolders = shuffle($foldersArray);
 $filesArray = ['HClassOne', 'HClassTwo'];
-$randomFiles = array_rand($filesArray, 1);
+$randomFiles = shuffle($filesArray);
 
-$where = 'classes\\' . $foldersArray[$randomFolders] . '\\' . $filesArray[$randomFiles];
+$slashFolder = addslashes('classes\\');
+$folder = stripslashes($slashFolder);
+$separator = addslashes('\\');
+$sep = stripslashes($separator);
+$where = $folder . $foldersArray[$randomFolders] . $sep . $filesArray[$randomFiles];
 
 $object = new $where;
 
 echo App::getSomething($prefixDate, $object);
-
-echo '<br>';
-$name = new Prefix;
-$name->setName('Pero');
-echo 'Added by ' . $name->getName();

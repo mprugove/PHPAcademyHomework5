@@ -1,6 +1,6 @@
 <?php
 
-namespace classes\HomeworkClass2;
+namespace classes\HomeworkClass3;
 
 use classes\AbstractClass\AbstractClass;
 
